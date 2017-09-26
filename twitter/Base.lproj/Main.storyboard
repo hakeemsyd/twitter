@@ -38,5 +38,73 @@
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="138.98050974512745"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="2U2-il-0UC">
+            <objects>
+                <viewController id="lXx-ke-dwK" customClass="HomeViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="32S-G2-1Vk"/>
+                        <viewControllerLayoutGuide type="bottom" id="5pK-Lg-wpC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Uyd-g2-LoH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-WC-HkD">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="1vM-V5-buN"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Home" id="rpy-aV-gef">
+                                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="89s-7s-jZg"/>
+                                        <barButtonItem key="rightBarButtonItem" title="New" id="tNw-xh-ehk"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="148" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7c8-HS-iRJ">
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="Zz3-V5-879">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="148"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zz3-V5-879" id="ryw-hH-JjF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="147.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xlc-dA-idw">
+                                                    <rect key="frame" x="24" y="51" width="60" height="60"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="retweet-50" translatesAutoresizingMaskIntoConstraints="NO" id="KE7-X0-YJj">
+                                                    <rect key="frame" x="57" y="8" width="27" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fgY-WC-HkD" secondAttribute="trailing" id="CJW-gk-Ghj"/>
+                            <constraint firstAttribute="trailing" secondItem="7c8-HS-iRJ" secondAttribute="trailing" id="L6T-DP-D8d"/>
+                            <constraint firstItem="5pK-Lg-wpC" firstAttribute="top" secondItem="7c8-HS-iRJ" secondAttribute="bottom" id="fpj-18-pp9"/>
+                            <constraint firstItem="7c8-HS-iRJ" firstAttribute="top" secondItem="fgY-WC-HkD" secondAttribute="bottom" id="gph-yI-cyD"/>
+                            <constraint firstItem="fgY-WC-HkD" firstAttribute="top" secondItem="Uyd-g2-LoH" secondAttribute="top" id="lnp-qj-9IN"/>
+                            <constraint firstItem="fgY-WC-HkD" firstAttribute="leading" secondItem="Uyd-g2-LoH" secondAttribute="leading" id="qOj-JH-2XB"/>
+                            <constraint firstItem="7c8-HS-iRJ" firstAttribute="leading" secondItem="Uyd-g2-LoH" secondAttribute="leading" id="sY9-KS-ymK"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSO-Cd-WfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="853.60000000000002" y="138.98050974512745"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="retweet-50" width="50" height="50"/>
+    </resources>
 </document>
