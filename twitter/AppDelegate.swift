@@ -44,32 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
         print(url.description)
+       
         let requestToken = BDBOAuth1Credential(queryString: url.query)
-        let twitterClient = BDBOAuth1SessionManager(baseURL: URL(string: "https://api.twitter.com"), consumerKey: "65qAjjDv66sdNFBNTGOZ4DCIT", consumerSecret: "rLiDaoYWjQay9sied53yV2BxUFmv0DFbyHrMkPpKNMrwgIP55H")
+        let client = TwitterClient.sharedInstance
         
-        twitterClient?.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
+        client.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
             print("I got the access token: \(accessToken.token ?? "")");
 
-            twitterClient?.get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
-                let dict = response as! NSDictionary
-                let u = User(dict: dict)
-                print(u.name!)
-                print(u.profileUrl?.absoluteString ?? "")
-            }, failure: { (task: URLSessionDataTask?, error: Error) in
-                print(error.localizedDescription)
-            })
-            
-            
-            twitterClient?.get("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
-                let dict = response as! [NSDictionary]
-                let tweets = Tweet.tweetsWithArray(dicts: dict)
-                for tweet in tweets {
-                    print("Tweet: \(tweet.text ?? "")")
-                }
-                
-            }, failure: { (task: URLSessionDataTask?, error: Error) in
-                print(error.localizedDescription)
-            })
+            client.currentAccount()
+            client.homeTimeline()
             
         }, failure: { (error: Error!) in
             print("error: \(error?.localizedDescription ?? "")")
