@@ -25,7 +25,6 @@ class Tweet {
         if let timeStampStr = timeStampStr {
             timestamp = formatter.date(from: timeStampStr)
         }
-        
     }
     
     class func tweetsWithArray(dicts: [NSDictionary]) -> [Tweet]{

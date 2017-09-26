@@ -51,8 +51,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         client.fetchAccessToken(withPath: "oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
             print("I got the access token: \(accessToken.token ?? "")");
 
-            client.currentAccount()
-            client.homeTimeline()
+            client.currentAccount(success: { (user: User) in
+            
+            }, failure: { (error: Error) in
+                
+            })
+            
+            client.homeTimeline(success: { (tweets: [Tweet]) in
+                
+            }, failure: { (error: Error) in
+                
+            })
             
         }, failure: { (error: Error!) in
             print("error: \(error?.localizedDescription ?? "")")
