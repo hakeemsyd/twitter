@@ -8,15 +8,19 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var tableView: UITableView!
     var userTweets: [Tweet] = [Tweet]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
        
         TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
             self.userTweets = tweets
+            self.tableView.reloadData()
             for tweet in tweets {
                print(tweet)
             }
@@ -32,6 +36,22 @@ class HomeViewController: UIViewController {
  @IBAction func onLogoutClicked(_ sender: UIBarButtonItem) {
     TwitterClient.sharedInstance.logout()
         }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return userTweets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell") as? TweetCell
+        //Helper.loadPhoto(withUrl: tweets[indexPath.row]., into: <#T##UIImageView#>)
+        return cell!
+    }
+
     /*
     // MARK: - Navigation
 

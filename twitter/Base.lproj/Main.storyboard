@@ -70,7 +70,7 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="148" id="Zz3-V5-879">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="148" id="Zz3-V5-879" customClass="TweetCell" customModule="twitter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zz3-V5-879" id="ryw-hH-JjF">
@@ -88,6 +88,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="profileImageView" destination="xlc-dA-idw" id="b5p-yp-Rh1"/>
                                             <segue destination="zTk-30-jo0" kind="showDetail" id="KYt-0j-8yh"/>
                                         </connections>
                                     </tableViewCell>
@@ -117,6 +118,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="7c8-HS-iRJ" id="jeH-1b-b2D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSO-Cd-WfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
