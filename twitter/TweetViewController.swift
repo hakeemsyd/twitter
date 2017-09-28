@@ -15,7 +15,7 @@ class TweetViewController: UIViewController {
     @IBOutlet weak var tweetText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Helper.loadPhoto(withUrl: (User.currentUser?.profileImageUrl)!, into: profileImageView)
         // Do any additional setup after loading the view.
     }
 
@@ -25,12 +25,32 @@ class TweetViewController: UIViewController {
     }
     
     @IBAction func onTweet(_ sender: UIBarButtonItem) {
+        if let txt = tweetText.text {
+            if(!txt.isEmpty && txt.characters.count < 140) {
+                TwitterClient.sharedInstance.tweet(text: txt, success: {
+                    print("Tweet posted")
+                    self.dismiss(animated: true, completion: nil)
+                }, failure: { (error: Error) in
+                    print("Failed to post: \(error.localizedDescription)")
+                    self.showPostFailureError(error: error)
+                })
+            } else {
+                showTweetCountError(count: txt.characters.count)
+            }
+        }
     }
     
     @IBAction func onCancelTweet(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
+    private func showTweetCountError(count: Int) {
+        print("Text cannot be longer then 140, you entered \(count)")
+    }
+    
+    private func showPostFailureError(error: Error) {
+        print("Not sure what to do. Post failed")
+    }
     
 
     /*

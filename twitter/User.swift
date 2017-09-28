@@ -13,7 +13,7 @@ class User {
     
     var name: String?
     var screenname: String?
-    var profileUrl: URL?
+    var profileImageUrl: URL?
     var tagline: String?
     
     var dictionary: NSDictionary?
@@ -24,7 +24,7 @@ class User {
         screenname = dict["screen_name"] as? String
         let profileUrlStr = dict["profile_image_url_https"] as? String
         if let profileUrlStr = profileUrlStr {
-            profileUrl = URL(string: profileUrlStr)
+            profileImageUrl = URL(string: profileUrlStr)
         }
     }
     
