@@ -13,8 +13,7 @@ import BDBOAuth1Manager
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         if User.currentUser != nil {
@@ -24,6 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = vc
         } else {
             print("There is no current user")
+        }
+    
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.init(User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (Notification) in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "loginScreen")
+            self.window?.rootViewController = vc
         }
         return true
     }

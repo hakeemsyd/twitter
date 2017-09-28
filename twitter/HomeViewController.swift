@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
             self.userTweets = tweets
             for tweet in tweets {
@@ -28,7 +29,9 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
+ @IBAction func onLogoutClicked(_ sender: UIBarButtonItem) {
+    TwitterClient.sharedInstance.logout()
+        }
     /*
     // MARK: - Navigation
 

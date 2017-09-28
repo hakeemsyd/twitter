@@ -12,7 +12,7 @@
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -101,7 +101,13 @@
                             <constraint firstItem="7c8-HS-iRJ" firstAttribute="leading" secondItem="Uyd-g2-LoH" secondAttribute="leading" id="sY9-KS-ymK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jbF-tg-wy8"/>
+                    <navigationItem key="navigationItem" id="jbF-tg-wy8">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="Eqh-K4-Gqb">
+                            <connections>
+                                <action selector="onLogoutClicked:" destination="lXx-ke-dwK" id="9GB-oY-MgZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSO-Cd-WfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
