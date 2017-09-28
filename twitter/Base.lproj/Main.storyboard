@@ -213,6 +213,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="currCharsAvailableView" destination="HWf-Tt-LBM" id="6lS-BF-oiI"/>
                         <outlet property="profileImageView" destination="Fx4-5l-GWf" id="Sfe-yy-3Wf"/>
                         <outlet property="tweetText" destination="Ml4-n6-2pR" id="fNc-NV-C1f"/>
                     </connections>

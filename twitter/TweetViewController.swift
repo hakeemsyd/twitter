@@ -8,20 +8,21 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
+class TweetViewController: UIViewController, UITextViewDelegate {
 
+    let MAX_TWEET_CHARS = 5
+    @IBOutlet weak var currCharsAvailableView: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
     @IBOutlet weak var tweetText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tweetText.text = ""
+        currCharsAvailableView.text = "\(MAX_TWEET_CHARS)"
+        
+        tweetText.delegate = self
         Helper.loadPhoto(withUrl: (User.currentUser?.profileImageUrl)!, into: profileImageView)
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onTweet(_ sender: UIBarButtonItem) {
@@ -52,6 +53,21 @@ class TweetViewController: UIViewController {
         print("Not sure what to do. Post failed")
     }
     
+    
+    func textViewDidChange(_ textView: UITextView) {
+        print(textView.text)
+        let currText = tweetText.text
+        let avail =  MAX_TWEET_CHARS - (currText?.characters.count)!
+        currCharsAvailableView.text = "\(avail)"
+        if avail == 0 {
+            //let index = currText?.index(before: String.Index)
+            //let newText = currText?.substring(to: index)
+            if let currText = currText {
+                //textView.text = currText.substring(to: currText.index(before: currText.endIndex - MAX_TWEET_CHARS ))
+            }
+
+        }
+    }
 
     /*
     // MARK: - Navigation
