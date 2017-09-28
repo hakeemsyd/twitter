@@ -9,16 +9,23 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
+    var userTweets: [Tweet] = [Tweet]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
+            self.userTweets = tweets
+            for tweet in tweets {
+               print(tweet)
+            }
+        }) { (error: Error) in
+            print(error.localizedDescription)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 

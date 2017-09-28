@@ -10,7 +10,7 @@ import UIKit
 import BDBOAuth1Manager
 
 class LoginViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -23,16 +23,12 @@ class LoginViewController: UIViewController {
 
 
     @IBAction func onTwitterLoginClick(_ sender: UIButton) {
-        TwitterClient.sharedInstance.deauthorize()
-        TwitterClient.sharedInstance.fetchRequestToken(withPath: "oauth/request_token", method: "GET", callbackURL: URL(string: "twitterflash://oauth"), scope: nil, success: { (requestToken: BDBOAuth1Credential!) in
-            print("I got a token: " + requestToken.token);
-            let u = "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token ?? "")"
-            let url = URL(string: u)
-            UIApplication.shared.openURL(url!)
-            
-        }, failure: { (error: Error!) in
-            print("error: \(error?.localizedDescription ?? "")")
-        })
+        TwitterClient.sharedInstance.login(success: { 
+            print("I have loggedIn")
+            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        }) { (error: Error) in
+            print("\(error.localizedDescription)")
+        }
     }
 }
 
