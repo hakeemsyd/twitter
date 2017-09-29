@@ -48,8 +48,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell") as? TweetCell
-        let url = userTweets[indexPath.row].user?.profileImageUrl
+        let t = userTweets[indexPath.row]
+        let url = t.user?.profileImageUrl
         Helper.loadPhoto(withUrl: url!, into: (cell?.profileImageView)!)
+        cell?.postTextView.text = t.text
+        cell?.nameView.text = t.user?.screenname
+        cell?.aliasView.text = t.user?.tagline
         return cell!
     }
 

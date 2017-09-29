@@ -10,7 +10,7 @@ import UIKit
 
 class TweetViewController: UIViewController, UITextViewDelegate {
 
-    let MAX_TWEET_CHARS = 5
+    let MAX_TWEET_CHARS = 140
     @IBOutlet weak var currCharsAvailableView: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
@@ -62,16 +62,11 @@ class TweetViewController: UIViewController, UITextViewDelegate {
             currCharsAvailableView.text = "\(avail)"
         }
         if avail <= 0 {
-            //let index = currText?.index(before: String.Index)
-            //let newText = currText?.substring(to: index)
             if let currText = currText {
                 let endIndex = currText.index(currText.startIndex, offsetBy: MAX_TWEET_CHARS)
                 let newText = currText.substring(to: endIndex)
                 textView.text = newText
-                //textView.text = currText.substring(to: currText.index(before: currText.endIndex - MAX_TWEET_CHARS ))
-                
             }
-
         }
     }
 
