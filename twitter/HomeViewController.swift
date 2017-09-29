@@ -48,8 +48,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let url = t.user?.profileImageUrl
         Helper.loadPhoto(withUrl: url!, into: (cell?.profileImageView)!)
         cell?.postTextView.text = t.text
-        cell?.nameView.text = t.user?.screenname
-        cell?.aliasView.text = t.user?.tagline
+        cell?.nameView.text = t.user?.name
+        cell?.aliasView.text = "@\(t.user?.screenname ?? "")"
         return cell!
     }
 
