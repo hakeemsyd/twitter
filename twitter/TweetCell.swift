@@ -10,7 +10,7 @@ import UIKit
 
 class TweetCell: UITableViewCell {
 
-    @IBOutlet weak var postTextView: UILabel!
+    @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var aliasView: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameView: UILabel!
