@@ -42,10 +42,10 @@
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="138.98050974512745"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="2U2-il-0UC">
             <objects>
-                <viewController id="lXx-ke-dwK" customClass="HomeViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Home" id="lXx-ke-dwK" customClass="HomeViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="32S-G2-1Vk"/>
                         <viewControllerLayoutGuide type="bottom" id="5pK-Lg-wpC"/>
@@ -70,11 +70,11 @@
                                 <rect key="frame" x="0.0" y="65" width="375" height="602"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="148" id="Zz3-V5-879" customClass="TweetCell" customModule="twitter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="148" id="Zz3-V5-879" customClass="TweetCell" customModule="twitter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="148"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zz3-V5-879" id="ryw-hH-JjF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="147.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="147.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xlc-dA-idw">
@@ -120,7 +120,7 @@
                                             <outlet property="nameView" destination="t9h-OF-HTd" id="594-k8-u2V"/>
                                             <outlet property="postTextView" destination="Scf-gU-ig8" id="ubD-DX-j6e"/>
                                             <outlet property="profileImageView" destination="xlc-dA-idw" id="b5p-yp-Rh1"/>
-                                            <segue destination="zTk-30-jo0" kind="showDetail" id="KYt-0j-8yh"/>
+                                            <segue destination="zTk-30-jo0" kind="push" id="EDH-3K-c0F"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -155,12 +155,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSO-Cd-WfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1572" y="149.77511244377811"/>
+            <point key="canvasLocation" x="1716" y="-4"/>
         </scene>
-        <!--View Controller-->
+        <!--Tweet Detail View Controller-->
         <scene sceneID="VJa-B0-Fia">
             <objects>
-                <viewController id="zTk-30-jo0" sceneMemberID="viewController">
+                <viewController id="zTk-30-jo0" customClass="TweetDetailViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xMB-oN-OCr"/>
                         <viewControllerLayoutGuide type="bottom" id="9Wg-Uw-z9c"/>
@@ -170,10 +170,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="uL4-sH-KdQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCq-rq-gyT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2420" y="-484"/>
+            <point key="canvasLocation" x="2542" y="-353"/>
         </scene>
         <!--Tweet View Controller-->
         <scene sceneID="3Fb-u4-dys">
@@ -251,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyM-Qi-pNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2429.5999999999999" y="149.77511244377811"/>
+            <point key="canvasLocation" x="3368.8000000000002" y="149.77511244377811"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gLl-g2-obR">

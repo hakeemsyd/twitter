@@ -10,6 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var refreshControl: UIRefreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     var userTweets: [Tweet] = [Tweet]()
     
@@ -17,16 +18,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-       
-        TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
-            self.userTweets = tweets
-            self.tableView.reloadData()
-            for tweet in tweets {
-               print(tweet)
-            }
-        }) { (error: Error) in
-            print(error.localizedDescription)
-        }
+        // pull to refresh
+        refreshControl.addTarget(self, action: #selector(onUserInitiatedRefresh(_:)), for: UIControlEvents.valueChanged)
+        tableView.insertSubview(refreshControl, at: 0)
+        update()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +52,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell!
     }
 
+    func onUserInitiatedRefresh(_ refreshControl: UIRefreshControl) {
+        update()
+    }
+    
+    private func update() {
+        TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
+            self.userTweets = tweets
+            self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
+            for tweet in tweets {
+                print(tweet)
+            }
+        }) { (error: Error) in
+            self.refreshControl.endRefreshing()
+            print(error.localizedDescription)
+        }
+    }
     /*
     // MARK: - Navigation
 
