@@ -10,6 +10,13 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
+    
+    @IBOutlet weak var numFavView: UILabel!
+    @IBOutlet weak var numRetweetsView: UILabel!
+    @IBOutlet weak var tweetTextView: UITextView!
+    @IBOutlet weak var aliasView: UILabel!
+    @IBOutlet weak var nameView: UILabel!
+    @IBOutlet weak var profileImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,7 +28,13 @@ class TweetDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func onFavorite(_ sender: Any) {
+    }
+    @IBAction func onRetweet(_ sender: UIButton) {
+    }
 
+    @IBAction func onReply(_ sender: UIButton) {
+    }
     /*
     // MARK: - Navigation
 
