@@ -58,12 +58,18 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         print(textView.text)
         let currText = tweetText.text
         let avail =  MAX_TWEET_CHARS - (currText?.characters.count)!
-        currCharsAvailableView.text = "\(avail)"
-        if avail == 0 {
+        if( avail >= 0) {
+            currCharsAvailableView.text = "\(avail)"
+        }
+        if avail <= 0 {
             //let index = currText?.index(before: String.Index)
             //let newText = currText?.substring(to: index)
             if let currText = currText {
+                let endIndex = currText.index(currText.startIndex, offsetBy: MAX_TWEET_CHARS)
+                let newText = currText.substring(to: endIndex)
+                textView.text = newText
                 //textView.text = currText.substring(to: currText.index(before: currText.endIndex - MAX_TWEET_CHARS ))
+                
             }
 
         }
