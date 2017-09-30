@@ -11,7 +11,7 @@ import UIKit
 class Tweet {
     var id: Int?
     var text: String?
-    var timestamp: Date?
+    var timestamp: NSDate?
     var retweetCount: Int = 0
     var favoriteCount: Int = 0
     var user: User?
@@ -19,13 +19,14 @@ class Tweet {
     init(dict: NSDictionary) {
         text = dict["text"] as? String
         retweetCount = (dict["retweet_count"] as? Int) ?? 0
-        favoriteCount = (dict["favourites_count"] as? Int) ?? 0
+        favoriteCount = (dict["favorite_count"] as? Int) ?? 0
         
         let timeStampStr = dict["created_at"] as? String
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         if let timeStampStr = timeStampStr {
-            timestamp = formatter.date(from: timeStampStr)
+            timestamp = formatter.date(from: timeStampStr)! as NSDate
         }
         
         let idStr = dict["id"] as? Int

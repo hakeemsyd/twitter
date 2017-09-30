@@ -51,6 +51,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell?.nameView.text = t.user?.name
         cell?.aliasView.text = "@\(t.user?.screenname ?? "")"
         cell?.tweet = t
+       // cell?.timeView.text = t.timestamp?.description
         return cell!
     }
 

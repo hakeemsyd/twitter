@@ -180,6 +180,7 @@
                                             <outlet property="nameView" destination="t9h-OF-HTd" id="594-k8-u2V"/>
                                             <outlet property="postTextView" destination="EeF-eE-xQi" id="9Xj-hc-yoB"/>
                                             <outlet property="profileImageView" destination="xlc-dA-idw" id="b5p-yp-Rh1"/>
+                                            <outlet property="timeView" destination="k1I-Ad-bwf" id="Fe6-h2-OdH"/>
                                             <segue destination="zTk-30-jo0" kind="push" identifier="viewTweetSegue" id="EDH-3K-c0F"/>
                                         </connections>
                                     </tableViewCell>
@@ -262,13 +263,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="H9J-gX-XnR">
-                                <rect key="frame" x="24" y="237" width="335" height="69"/>
+                                <rect key="frame" x="24" y="225" width="335" height="98"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="69" id="2gf-6W-0us"/>
+                                    <constraint firstAttribute="height" constant="98" id="2gf-6W-0us"/>
                                     <constraint firstAttribute="width" constant="335" id="cOs-iL-UxW"/>
                                 </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt jdkjfjjjjdiekd,mjcjdjfgjruejdjxcmfjfjtgjdfncndkl</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -360,10 +361,10 @@
                             <constraint firstItem="n3G-50-q1p" firstAttribute="leading" secondItem="GLk-4t-tnd" secondAttribute="leadingMargin" id="SCx-sl-OAS"/>
                             <constraint firstItem="sgt-r0-CYn" firstAttribute="leading" secondItem="GLk-4t-tnd" secondAttribute="leadingMargin" id="Tly-lT-013"/>
                             <constraint firstItem="sgt-r0-CYn" firstAttribute="top" secondItem="YUN-jS-hEd" secondAttribute="bottom" constant="21" id="YCU-f7-Xi1"/>
-                            <constraint firstItem="H9J-gX-XnR" firstAttribute="top" secondItem="dkA-iz-MgW" secondAttribute="bottom" constant="20" id="ZQC-1k-K3d"/>
+                            <constraint firstItem="H9J-gX-XnR" firstAttribute="top" secondItem="dkA-iz-MgW" secondAttribute="bottom" constant="8" id="ZQC-1k-K3d"/>
                             <constraint firstItem="ea1-Dq-bPe" firstAttribute="leading" secondItem="GLk-4t-tnd" secondAttribute="leadingMargin" constant="81" id="cwj-Gi-ZyJ"/>
                             <constraint firstItem="dkA-iz-MgW" firstAttribute="leading" secondItem="GLk-4t-tnd" secondAttribute="leadingMargin" constant="8" id="e4L-IW-Dgm"/>
-                            <constraint firstItem="9PB-Ga-skI" firstAttribute="top" secondItem="H9J-gX-XnR" secondAttribute="bottom" constant="25" id="eel-z4-K06"/>
+                            <constraint firstItem="9PB-Ga-skI" firstAttribute="top" secondItem="H9J-gX-XnR" secondAttribute="bottom" constant="8" id="eel-z4-K06"/>
                             <constraint firstItem="7jA-jX-fuZ" firstAttribute="top" secondItem="DDc-1o-gGp" secondAttribute="bottom" constant="8" id="g1f-7M-8Qw"/>
                             <constraint firstItem="YUN-jS-hEd" firstAttribute="top" secondItem="n3G-50-q1p" secondAttribute="bottom" constant="15" id="j9b-7g-Srd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YUN-jS-hEd" secondAttribute="trailing" constant="146" id="jRi-TB-HFu"/>

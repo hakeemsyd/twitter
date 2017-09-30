@@ -10,6 +10,7 @@ import UIKit
 
 class TweetCell: UITableViewCell {
 
+    @IBOutlet weak var timeView: UILabel!
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var aliasView: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
