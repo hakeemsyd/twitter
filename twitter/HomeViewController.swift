@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NSDateMinimalTimeAgo
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -51,7 +52,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell?.nameView.text = t.user?.name
         cell?.aliasView.text = "@\(t.user?.screenname ?? "")"
         cell?.tweet = t
-       // cell?.timeView.text = t.timestamp?.description
+        cell?.timeView.text = t.timestamp?.timeAgo()
         if let rUser = t.retweetUser {
               cell?.retweetUserName.text = "\(rUser.screenname ?? "") Retweeted"
             cell?.retweetUserName.isHidden = false
