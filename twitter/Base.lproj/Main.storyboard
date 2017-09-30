@@ -440,25 +440,41 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fx4-5l-GWf">
-                                <rect key="frame" x="16" y="93" width="99" height="87"/>
+                                <rect key="frame" x="16" y="93" width="80" height="80"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="87" id="3v4-73-g1O"/>
-                                    <constraint firstAttribute="width" constant="99" id="O7a-cZ-hhi"/>
+                                    <constraint firstAttribute="width" constant="80" id="0D1-Gk-Ao4"/>
+                                    <constraint firstAttribute="height" constant="80" id="nXd-ZV-fhI"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4M-rX-75A">
+                                <rect key="frame" x="123" y="104" width="236" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D2x-cm-0kC">
+                                <rect key="frame" x="123" y="133" width="236" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Fx4-5l-GWf" firstAttribute="top" secondItem="rSj-ua-qt5" secondAttribute="bottom" constant="37" id="2mN-EX-aIK"/>
                             <constraint firstItem="rSj-ua-qt5" firstAttribute="leading" secondItem="oYk-Th-IFQ" secondAttribute="leading" id="Bag-PB-s9H"/>
-                            <constraint firstItem="Fx4-5l-GWf" firstAttribute="top" secondItem="rSj-ua-qt5" secondAttribute="bottom" constant="37" id="EJw-XI-G2w"/>
                             <constraint firstItem="rSj-ua-qt5" firstAttribute="top" secondItem="oYk-Th-IFQ" secondAttribute="top" constant="12" id="J2N-ib-E5D"/>
-                            <constraint firstItem="Ml4-n6-2pR" firstAttribute="top" secondItem="Fx4-5l-GWf" secondAttribute="bottom" constant="35" id="SSu-nk-RcI"/>
-                            <constraint firstItem="Fx4-5l-GWf" firstAttribute="leading" secondItem="oYk-Th-IFQ" secondAttribute="leadingMargin" id="wRw-9g-3IY"/>
+                            <constraint firstItem="Ml4-n6-2pR" firstAttribute="top" secondItem="Fx4-5l-GWf" secondAttribute="bottom" constant="42" id="UIn-Kx-jTI"/>
+                            <constraint firstItem="Fx4-5l-GWf" firstAttribute="leading" secondItem="oYk-Th-IFQ" secondAttribute="leadingMargin" id="ZfH-d5-xPV"/>
                             <constraint firstItem="Ml4-n6-2pR" firstAttribute="leading" secondItem="oYk-Th-IFQ" secondAttribute="leadingMargin" id="ytf-Jb-BnC"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aliasView" destination="D2x-cm-0kC" id="W2w-Gf-3V5"/>
                         <outlet property="currCharsAvailableView" destination="HWf-Tt-LBM" id="6lS-BF-oiI"/>
+                        <outlet property="nameView" destination="v4M-rX-75A" id="hvj-Ee-0oQ"/>
                         <outlet property="profileImageView" destination="Fx4-5l-GWf" id="Sfe-yy-3Wf"/>
                         <outlet property="tweetText" destination="Ml4-n6-2pR" id="fNc-NV-C1f"/>
                     </connections>

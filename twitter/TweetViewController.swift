@@ -14,6 +14,8 @@ class TweetViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var currCharsAvailableView: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
 
+    @IBOutlet weak var aliasView: UILabel!
+    @IBOutlet weak var nameView: UILabel!
     @IBOutlet weak var tweetText: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
