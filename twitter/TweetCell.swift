@@ -14,6 +14,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var aliasView: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameView: UILabel!
+    var tweet: Tweet?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

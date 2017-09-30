@@ -50,6 +50,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell?.postTextView.text = t.text
         cell?.nameView.text = t.user?.name
         cell?.aliasView.text = "@\(t.user?.screenname ?? "")"
+        cell?.tweet = t
         return cell!
     }
 
@@ -70,14 +71,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print(error.localizedDescription)
         }
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "viewTweetSegue") {
+             let destinationViewController = segue.destination as! TweetDetailViewController
+             let s = sender as! TweetCell
+             destinationViewController.tweetId = (s.tweet?.id)!
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
-
 }

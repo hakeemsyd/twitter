@@ -9,6 +9,7 @@
 import UIKit
 
 class Tweet {
+    var id: Int?
     var text: String?
     var timestamp: Date?
     var retweetCount: Int = 0
@@ -25,6 +26,11 @@ class Tweet {
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
         if let timeStampStr = timeStampStr {
             timestamp = formatter.date(from: timeStampStr)
+        }
+        
+        let idStr = dict["id"] as? Int
+        if let idStr = idStr {
+            id = idStr as Int
         }
         
         user = User(dict: dict["user"] as! NSDictionary)

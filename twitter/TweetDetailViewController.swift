@@ -10,7 +10,7 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
-    
+    var tweetId: Int = 0
     @IBOutlet weak var numFavView: UILabel!
     @IBOutlet weak var numRetweetsView: UILabel!
     @IBOutlet weak var tweetTextView: UITextView!
@@ -19,13 +19,11 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var profileImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        update()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onFavorite(_ sender: Any) {
@@ -34,6 +32,21 @@ class TweetDetailViewController: UIViewController {
     }
 
     @IBAction func onReply(_ sender: UIButton) {
+    }
+    
+    private func update(){
+        if(tweetId > 0) {
+            TwitterClient.sharedInstance.getTweet(id: tweetId, success: { (tweet: Tweet) in
+                self.tweetTextView.text = tweet.text
+                self.aliasView.text = tweet.user?.screenname
+                self.nameView.text = tweet.user?.name
+                self.numRetweetsView.text = "\(tweet.retweetCount) RETWEETS"
+                self.numFavView.text = "\(tweet.favoriteCount) FAVORITES"
+                Helper.loadPhoto(withUrl: (tweet.user?.profileImageUrl)!, into: self.profileImage)
+            }, failure: { (error: Error) in
+                
+            })
+        }
     }
     /*
     // MARK: - Navigation
