@@ -89,12 +89,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func onUserInitiatedRefresh(_ refreshControl: UIRefreshControl) {
+        
         update(mode: Update.RESET)
     }
     
     private func update(mode: Update) {
         var lasttweeId = -1
-        if userTweets.count > 0 {
+        if userTweets.count > 0 && mode ==  Update.APPEND {
             lasttweeId = (userTweets.last?.id)!
         }
         
@@ -102,7 +103,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             if mode == Update.RESET {
                 self.userTweets = tweets
             } else if mode == Update.APPEND {
-                self.userTweets.append(contentsOf: tweets)
+                self.userTweets += tweets
             }
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()

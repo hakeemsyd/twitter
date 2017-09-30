@@ -17,7 +17,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     var loginFailure: ((Error) -> ())?
     
     func getTweet(id: Int, success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
-        var params: NSDictionary = [
+        let params: NSDictionary = [
             "id": id
         ]
         
@@ -36,7 +36,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         if lastTweetId > 0 {
             params = [
                 "count": maxCount,
-                "max_id": lastTweetId
+                "since_id": lastTweetId
             ]
         }
         get("1.1/statuses/home_timeline.json", parameters: params, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
@@ -102,7 +102,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func tweet(text: String, success: @escaping () -> (), failure: @escaping (Error) -> ()) {
-        var params: NSDictionary = [
+        let params: NSDictionary = [
             "status": text
         ]
         
