@@ -10,6 +10,7 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
+    @IBOutlet weak var favButtonView: UIButton!
     @IBOutlet weak var retweetIcon: UIImageView!
     @IBOutlet weak var retweetUserName: UILabel!
     var tweetId: Int = 0
@@ -29,8 +30,10 @@ class TweetDetailViewController: UIViewController {
     }
     
     @IBAction func onFavorite(_ sender: Any) {
+        update()
     }
     @IBAction func onRetweet(_ sender: UIButton) {
+        update()
     }
 
     @IBAction func onReply(_ sender: UIButton) {
@@ -44,6 +47,15 @@ class TweetDetailViewController: UIViewController {
                 self.nameView.text = tweet.user?.name
                 self.numRetweetsView.text = "\(tweet.retweetCount) RETWEETS"
                 self.numFavView.text = "\(tweet.favoriteCount) FAVORITES"
+                if let fav = tweet.favourited {
+                    if fav {
+                        self.favButtonView.setImage(UIImage(named: "fav-filled-50"), for: [])
+                    } else {
+                        self.favButtonView.setImage(UIImage(named: "fav-empty-50"), for: [])
+                        
+                    }
+                }
+                
                 Helper.loadPhoto(withUrl: (tweet.user?.profileImageUrl)!, into: self.profileImage)
                 
                if let rUser = tweet.retweetUser {

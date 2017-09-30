@@ -93,7 +93,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     private func update(mode: Update) {
-        var lasttweeId = 0
+        var lasttweeId = -1
         if userTweets.count > 0 {
             lasttweeId = (userTweets.last?.id)!
         }

@@ -397,6 +397,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="aliasView" destination="7jA-jX-fuZ" id="goc-Xu-xU0"/>
+                        <outlet property="favButtonView" destination="YUN-jS-hEd" id="m7n-mM-kaq"/>
                         <outlet property="nameView" destination="DDc-1o-gGp" id="3VL-1b-DEP"/>
                         <outlet property="numFavView" destination="5H7-tX-I4k" id="gWG-WU-tTW"/>
                         <outlet property="numRetweetsView" destination="BUq-Gf-6sc" id="7cD-F6-fa3"/>
@@ -512,7 +513,7 @@
             <objects>
                 <navigationController storyboardIdentifier="homeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="4VD-6k-Dvu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0OO-Sb-6i8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0OO-Sb-6i8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.13241285085678101" green="0.62912249565124512" blue="0.9429437518119812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

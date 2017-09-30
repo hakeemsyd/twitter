@@ -32,9 +32,7 @@ class TwitterClient: BDBOAuth1SessionManager {
     }
     
     func homeTimeline(lastTweetId: Int, maxCount: Int, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
-        
-        
-        var params: NSDictionary?
+        var params: NSDictionary? = nil
         if lastTweetId > 0 {
             params = [
                 "count": maxCount,
