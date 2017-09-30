@@ -20,6 +20,8 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var aliasView: UILabel!
     @IBOutlet weak var nameView: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    var tweet: Tweet?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         update()
@@ -30,7 +32,13 @@ class TweetDetailViewController: UIViewController {
     }
     
     @IBAction func onFavorite(_ sender: Any) {
-        update()
+        TwitterClient.sharedInstance.fav(tweetId: tweetId, val: !(tweet?.favourited)!,success: { (tweet: Tweet) in
+            self.tweetId = tweet.id!
+            self.update()
+        }) { (error: Error) in
+            print("\(error.localizedDescription)")
+        }
+        
     }
     @IBAction func onRetweet(_ sender: UIButton) {
         update()
@@ -42,6 +50,7 @@ class TweetDetailViewController: UIViewController {
     private func update(){
         if(tweetId > 0) {
             TwitterClient.sharedInstance.getTweet(id: tweetId, success: { (tweet: Tweet) in
+                self.tweet = tweet
                 self.tweetTextView.text = tweet.text
                 self.aliasView.text = tweet.user?.screenname
                 self.nameView.text = tweet.user?.name

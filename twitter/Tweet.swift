@@ -22,7 +22,7 @@ class Tweet {
         text = dict["text"] as? String
         retweetCount = (dict["retweet_count"] as? Int) ?? 0
         favoriteCount = (dict["favorite_count"] as? Int) ?? 0
-        favourited = dict["favourited"] as? Bool ?? false
+        favourited = dict["favorited"] as? Bool ?? false
         
         let timeStampStr = dict["created_at"] as? String
         
