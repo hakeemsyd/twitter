@@ -10,6 +10,8 @@ import UIKit
 
 class TweetDetailViewController: UIViewController {
 
+    @IBOutlet weak var retweetIcon: UIImageView!
+    @IBOutlet weak var retweetUserName: UILabel!
     var tweetId: Int = 0
     @IBOutlet weak var numFavView: UILabel!
     @IBOutlet weak var numRetweetsView: UILabel!
@@ -43,6 +45,15 @@ class TweetDetailViewController: UIViewController {
                 self.numRetweetsView.text = "\(tweet.retweetCount) RETWEETS"
                 self.numFavView.text = "\(tweet.favoriteCount) FAVORITES"
                 Helper.loadPhoto(withUrl: (tweet.user?.profileImageUrl)!, into: self.profileImage)
+                
+               if let rUser = tweet.retweetUser {
+                    self.retweetUserName.text = "\(rUser.screenname ?? "") Retweeted"
+                    self.retweetUserName.isHidden = false
+                    self.retweetIcon.isHidden = false
+                } else {
+                    self.retweetUserName.isHidden = true
+                    self.retweetIcon.isHidden = true
+                }
             }, failure: { (error: Error) in
                 
             })

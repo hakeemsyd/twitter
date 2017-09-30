@@ -9,8 +9,8 @@
 import UIKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    @IBOutlet weak var whoRetweetedView: UILabel!
+
+    @IBOutlet weak var retweetedIcon: UIImageView!
     var refreshControl: UIRefreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     var userTweets: [Tweet] = [Tweet]()
@@ -52,6 +52,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell?.aliasView.text = "@\(t.user?.screenname ?? "")"
         cell?.tweet = t
        // cell?.timeView.text = t.timestamp?.description
+        if let rUser = t.retweetUser {
+              cell?.retweetUserName.text = "\(rUser.screenname ?? "") Retweeted"
+            cell?.retweetUserName.isHidden = false
+            cell?.retweetIcon.isHidden = false
+        } else {
+            cell?.retweetUserName.isHidden = true
+            cell?.retweetIcon.isHidden = true
+        }
         return cell!
     }
 

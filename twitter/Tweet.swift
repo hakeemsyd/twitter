@@ -15,6 +15,7 @@ class Tweet {
     var retweetCount: Int = 0
     var favoriteCount: Int = 0
     var user: User?
+    var retweetUser: User?
     
     init(dict: NSDictionary) {
         text = dict["text"] as? String
@@ -34,6 +35,10 @@ class Tweet {
             id = idStr as Int
         }
         
+        let retweetDict = dict["retweeted_status"] as? NSDictionary
+        if let retweetDict = retweetDict {
+            retweetUser = User(dict: retweetDict["user"] as! NSDictionary)
+        }
         user = User(dict: dict["user"] as! NSDictionary)
     }
     

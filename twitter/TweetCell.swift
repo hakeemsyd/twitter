@@ -10,6 +10,8 @@ import UIKit
 
 class TweetCell: UITableViewCell {
 
+    @IBOutlet weak var retweetUserName: UILabel!
+    @IBOutlet weak var retweetIcon: UIImageView!
     @IBOutlet weak var timeView: UILabel!
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var aliasView: UILabel!

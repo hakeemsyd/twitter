@@ -186,6 +186,8 @@
                                             <outlet property="nameView" destination="t9h-OF-HTd" id="594-k8-u2V"/>
                                             <outlet property="postTextView" destination="EeF-eE-xQi" id="9Xj-hc-yoB"/>
                                             <outlet property="profileImageView" destination="xlc-dA-idw" id="b5p-yp-Rh1"/>
+                                            <outlet property="retweetIcon" destination="KE7-X0-YJj" id="xjY-gr-FbR"/>
+                                            <outlet property="retweetUserName" destination="mtJ-Au-Z1n" id="q0K-zJ-DOo"/>
                                             <outlet property="timeView" destination="k1I-Ad-bwf" id="Fe6-h2-OdH"/>
                                             <segue destination="zTk-30-jo0" kind="push" identifier="viewTweetSegue" id="EDH-3K-c0F"/>
                                         </connections>
@@ -399,6 +401,8 @@
                         <outlet property="numFavView" destination="5H7-tX-I4k" id="gWG-WU-tTW"/>
                         <outlet property="numRetweetsView" destination="BUq-Gf-6sc" id="7cD-F6-fa3"/>
                         <outlet property="profileImage" destination="dkA-iz-MgW" id="mJm-5W-6Sn"/>
+                        <outlet property="retweetIcon" destination="ea1-Dq-bPe" id="Rht-89-sJF"/>
+                        <outlet property="retweetUserName" destination="ylr-Nc-7HR" id="QBH-f9-bw2"/>
                         <outlet property="tweetTextView" destination="H9J-gX-XnR" id="2fd-mO-aF9"/>
                     </connections>
                 </viewController>
