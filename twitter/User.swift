@@ -22,7 +22,8 @@ class User {
         self.dictionary = dict
         name = dict["name"] as? String
         screenname = dict["screen_name"] as? String
-        let profileUrlStr = dict["profile_image_url_https"] as? String
+        let st = dict["profile_image_url_https"] as? String
+        let profileUrlStr = st?.replacingOccurrences(of: "_normal", with: "_bigger")
         if let profileUrlStr = profileUrlStr {
             profileImageUrl = URL(string: profileUrlStr)
         }

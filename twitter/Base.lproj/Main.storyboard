@@ -23,9 +23,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="esX-56-2Oe">
-                                <rect key="frame" x="123" y="269" width="131" height="79"/>
+                                <rect key="frame" x="122" y="294" width="131" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.31205096840858459" green="0.58691185712814331" blue="0.91522812843322754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Twitter Login"/>
                                 <connections>
                                     <action selector="onTwitterLoginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="idW-3I-zAt"/>
