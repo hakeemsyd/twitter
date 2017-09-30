@@ -81,6 +81,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
              let destinationViewController = segue.destination as! TweetDetailViewController
              let s = sender as! TweetCell
              destinationViewController.tweetId = (s.tweet?.id)!
+        } else if (segue.identifier == "tweetSegue"){
+        
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

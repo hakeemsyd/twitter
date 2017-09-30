@@ -24,7 +24,8 @@ class TweetViewController: UIViewController, UITextViewDelegate {
         
         tweetText.delegate = self
         Helper.loadPhoto(withUrl: (User.currentUser?.profileImageUrl)!, into: profileImageView)
-        // Do any additional setup after loading the view.
+        aliasView.text = User.currentUser?.screenname
+        nameView.text = User.currentUser?.name
     }
     
     @IBAction func onTweet(_ sender: UIBarButtonItem) {
