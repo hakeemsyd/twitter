@@ -21,6 +21,9 @@ class TweetCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        postTextView.isScrollEnabled = false
+        postTextView.isEditable = false
+        postTextView.resignFirstResponder()
         // Initialization code
     }
 

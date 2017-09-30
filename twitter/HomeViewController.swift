@@ -9,12 +9,18 @@
 import UIKit
 import NSDateMinimalTimeAgo
 
+enum Update {
+    case RESET, APPEND
+}
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    let MAX_TWEETS = 20
+    var isMoreDataLoading = false
     @IBOutlet weak var retweetedIcon: UIImageView!
     var refreshControl: UIRefreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     var userTweets: [Tweet] = [Tweet]()
+    var loadingView: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +29,18 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // pull to refresh
         refreshControl.addTarget(self, action: #selector(onUserInitiatedRefresh(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
-        update()
+        //update()
+        
+        //infinite scroll
+        // infinite scroll
+        let tableFooterView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 320, height: 50))
+        loadingView.center = tableFooterView.center
+        tableFooterView.addSubview(loadingView)
+        self.tableView.tableFooterView = tableFooterView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        update(mode: Update.RESET)
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +61,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if(userTweets.count - indexPath.row <= MAX_TWEETS && !self.isMoreDataLoading){
+            self.isMoreDataLoading = true;
+            loadingView.startAnimating()
+            update(mode: Update.APPEND)
+        }
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell") as? TweetCell
         let t = userTweets[indexPath.row]
         let url = t.user?.profileImageUrl
@@ -65,19 +89,30 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     func onUserInitiatedRefresh(_ refreshControl: UIRefreshControl) {
-        update()
+        update(mode: Update.RESET)
     }
     
-    private func update() {
-        TwitterClient.sharedInstance.homeTimeline(success: { (tweets: [Tweet]) in
-            self.userTweets = tweets
+    private func update(mode: Update) {
+        var lasttweeId = 0
+        if userTweets.count > 0 {
+            lasttweeId = (userTweets.last?.id)!
+        }
+        
+        TwitterClient.sharedInstance.homeTimeline(lastTweetId: lasttweeId, maxCount: MAX_TWEETS, success: { (tweets: [Tweet]) in
+            if mode == Update.RESET {
+                self.userTweets = tweets
+            } else if mode == Update.APPEND {
+                self.userTweets.append(contentsOf: tweets)
+            }
             self.tableView.reloadData()
             self.refreshControl.endRefreshing()
-            for tweet in tweets {
-                print(tweet)
-            }
+            self.isMoreDataLoading = false
+            self.loadingView.stopAnimating()
+            
         }) { (error: Error) in
             self.refreshControl.endRefreshing()
+            self.loadingView.stopAnimating()
+            self.isMoreDataLoading = false
             print(error.localizedDescription)
         }
     }
