@@ -42,7 +42,7 @@ class TweetDetailViewController: UIViewController {
     }
     @IBAction func onRetweet(_ sender: UIButton) {
         TwitterClient.sharedInstance.retweet(tweetId: tweetId, val: !(tweet?.retweeted)!, success: { (tweet: Tweet) in
-            self.tweetId = tweet.id!
+            //self.tweetId = tweet.id!
             self.update()
         }) { (error: Error) in
             print("\(error.localizedDescription)")
