@@ -24,7 +24,7 @@ class Tweet {
         retweetCount = (dict["retweet_count"] as? Int) ?? 0
         favoriteCount = (dict["favorite_count"] as? Int) ?? 0
         favourited = dict["favorited"] as? Bool ?? false
-        retweeted = dict["retweeeted"] as? Bool ?? false
+        retweeted = dict["retweeted"] as? Bool ?? false
         
         let timeStampStr = dict["created_at"] as? String
         
@@ -68,7 +68,7 @@ class Tweet {
             }
         }
         
-        return UIImage(named: "retweeted-empty")!
+        return UIImage(named: "retweeted-filled")!
     }
     class func tweetsWithArray(dicts: [NSDictionary]) -> [Tweet]{
         var tweets = [Tweet]()
