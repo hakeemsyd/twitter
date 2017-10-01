@@ -39,12 +39,12 @@ class TweetCell: UITableViewCell {
         aliasView.text = "@\(tweet?.user?.screenname ?? "")"
         timeView.text = tweet?.timestamp?.timeAgo()
         if let rUser = tweet?.retweetUser {
-        retweetUserName.text = "\(rUser.screenname ?? "") Retweeted"
-        retweetUserName.isHidden = false
-        retweetIcon.isHidden = false
+            retweetUserName.text = "\(rUser.screenname ?? "") Retweeted"
+            retweetUserName.isHidden = false
+            retweetIcon.isHidden = false
         } else {
-        retweetUserName.isHidden = true
-        retweetIcon.isHidden = true
+            retweetUserName.isHidden = true
+            retweetIcon.isHidden = true
         }
         
         favButtonView.setImage(tweet?.getFavIcon(), for: [])

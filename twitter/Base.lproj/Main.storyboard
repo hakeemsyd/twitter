@@ -90,7 +90,7 @@
                                                         <constraint firstAttribute="width" constant="60" id="nO8-lk-ZNw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet-50" translatesAutoresizingMaskIntoConstraints="NO" id="KE7-X0-YJj">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet-filled" translatesAutoresizingMaskIntoConstraints="NO" id="KE7-X0-YJj">
                                                     <rect key="frame" x="57" y="8" width="25" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="8ce-pk-WmC"/>
@@ -146,7 +146,7 @@
                                                         <constraint firstAttribute="height" constant="25" id="7ws-WP-NuR"/>
                                                         <constraint firstAttribute="width" constant="25" id="u4t-IY-Gaj"/>
                                                     </constraints>
-                                                    <state key="normal" image="retweet-50"/>
+                                                    <state key="normal" image="retweet-50" backgroundImage="retweet-empty"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0q-7t-6cQ">
                                                     <rect key="frame" x="239" y="169" width="25" height="25"/>
@@ -520,7 +520,7 @@
             <objects>
                 <navigationController storyboardIdentifier="homeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="4VD-6k-Dvu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0OO-Sb-6i8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0OO-Sb-6i8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.009323745034635067" green="0.69356793165206909" blue="0.9981730580329895" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -540,5 +540,7 @@
         <image name="fav-empty-50" width="50" height="50"/>
         <image name="reply-50" width="50" height="50"/>
         <image name="retweet-50" width="50" height="50"/>
+        <image name="retweet-empty" width="50" height="50"/>
+        <image name="retweet-filled" width="50" height="50"/>
     </resources>
 </document>
