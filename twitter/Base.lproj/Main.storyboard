@@ -56,7 +56,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-WC-HkD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
-                                <color key="backgroundColor" red="0.13241285085678101" green="0.62912249565124512" blue="0.9429437518119812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.009323745034635067" green="0.69356793165206909" blue="0.9981730580329895" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="1vM-V5-buN"/>
                                 </constraints>
@@ -183,9 +183,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="aliasView" destination="gR0-gO-Mw6" id="cBW-dS-iXU"/>
+                                            <outlet property="favButtonView" destination="V0q-7t-6cQ" id="9A8-dk-2y6"/>
                                             <outlet property="nameView" destination="t9h-OF-HTd" id="594-k8-u2V"/>
                                             <outlet property="postTextView" destination="EeF-eE-xQi" id="9Xj-hc-yoB"/>
                                             <outlet property="profileImageView" destination="xlc-dA-idw" id="b5p-yp-Rh1"/>
+                                            <outlet property="retweetButtonView" destination="aXj-Hk-Hjh" id="Wmk-Rl-w1N"/>
                                             <outlet property="retweetIcon" destination="KE7-X0-YJj" id="xjY-gr-FbR"/>
                                             <outlet property="retweetUserName" destination="mtJ-Au-Z1n" id="q0K-zJ-DOo"/>
                                             <outlet property="timeView" destination="k1I-Ad-bwf" id="Fe6-h2-OdH"/>
@@ -206,7 +208,7 @@
                             <constraint firstItem="7c8-HS-iRJ" firstAttribute="leading" secondItem="Uyd-g2-LoH" secondAttribute="leading" id="sY9-KS-ymK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jbF-tg-wy8">
+                    <navigationItem key="navigationItem" title="Home" id="jbF-tg-wy8">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="Eqh-K4-Gqb">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
@@ -336,7 +338,9 @@
                                     <constraint firstAttribute="width" constant="25" id="FwM-t5-X9G"/>
                                     <constraint firstAttribute="height" constant="25" id="yDP-zJ-oYR"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="retweet-50"/>
+                                <state key="normal" title="Button" image="retweet-50">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onRetweet:" destination="zTk-30-jo0" eventType="touchUpInside" id="iLW-zJ-HYf"/>
                                 </connections>
@@ -347,7 +351,9 @@
                                     <constraint firstAttribute="width" constant="25" id="6uY-S0-j6z"/>
                                     <constraint firstAttribute="height" constant="25" id="kFL-ZM-yR4"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="fav-empty-50"/>
+                                <state key="normal" title="Button" image="fav-empty-50">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="onFavorite:" destination="zTk-30-jo0" eventType="touchUpInside" id="dHO-6B-TDJ"/>
                                 </connections>
@@ -402,6 +408,7 @@
                         <outlet property="numFavView" destination="5H7-tX-I4k" id="gWG-WU-tTW"/>
                         <outlet property="numRetweetsView" destination="BUq-Gf-6sc" id="7cD-F6-fa3"/>
                         <outlet property="profileImage" destination="dkA-iz-MgW" id="mJm-5W-6Sn"/>
+                        <outlet property="retweetButtonView" destination="oPS-9e-pZM" id="9YY-pN-eSZ"/>
                         <outlet property="retweetIcon" destination="ea1-Dq-bPe" id="Rht-89-sJF"/>
                         <outlet property="retweetUserName" destination="ylr-Nc-7HR" id="QBH-f9-bw2"/>
                         <outlet property="tweetTextView" destination="H9J-gX-XnR" id="2fd-mO-aF9"/>
@@ -513,10 +520,10 @@
             <objects>
                 <navigationController storyboardIdentifier="homeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="4VD-6k-Dvu" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0OO-Sb-6i8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="0OO-Sb-6i8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.13241285085678101" green="0.62912249565124512" blue="0.9429437518119812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.009323745034635067" green="0.69356793165206909" blue="0.9981730580329895" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

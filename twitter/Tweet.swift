@@ -17,12 +17,14 @@ class Tweet {
     var user: User?
     var retweetUser: User?
     var favourited: Bool?
+    var retweeted: Bool?
     
     init(dict: NSDictionary) {
         text = dict["text"] as? String
         retweetCount = (dict["retweet_count"] as? Int) ?? 0
         favoriteCount = (dict["favorite_count"] as? Int) ?? 0
         favourited = dict["favorited"] as? Bool ?? false
+        retweeted = dict["retweeeted"] as? Bool ?? false
         
         let timeStampStr = dict["created_at"] as? String
         
@@ -45,6 +47,29 @@ class Tweet {
         user = User(dict: dict["user"] as! NSDictionary)
     }
     
+    func getFavIcon() -> UIImage {
+        if let fav = favourited {
+            if fav {
+                return UIImage(named: "fav-filled-50")!
+            } else {
+                return UIImage(named: "fav-empty-50")!
+            }
+        }
+        
+        return UIImage(named: "fav-empty")!
+    }
+    
+    func getRetweetedIcon() -> UIImage {
+        if let retweeted = retweeted {
+            if retweeted {
+                return UIImage(named: "retweet-filled")!
+            } else {
+                return UIImage(named: "retweet-empty")!
+            }
+        }
+        
+        return UIImage(named: "retweeted-empty")!
+    }
     class func tweetsWithArray(dicts: [NSDictionary]) -> [Tweet]{
         var tweets = [Tweet]()
         for dict in dicts {

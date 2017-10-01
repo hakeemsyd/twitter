@@ -10,6 +10,8 @@ import UIKit
 
 class TweetCell: UITableViewCell {
 
+    @IBOutlet weak var retweetButtonView: UIButton!
+    @IBOutlet weak var favButtonView: UIButton!
     @IBOutlet weak var retweetUserName: UILabel!
     @IBOutlet weak var retweetIcon: UIImageView!
     @IBOutlet weak var timeView: UILabel!
@@ -24,13 +26,33 @@ class TweetCell: UITableViewCell {
         postTextView.isScrollEnabled = false
         postTextView.isEditable = false
         postTextView.resignFirstResponder()
-        // Initialization code
+        if tweet != nil {
+            update()
+        }
+    }
+    
+    func update() {
+        let url = tweet?.user?.profileImageUrl
+        Helper.loadPhoto(withUrl: url!, into: (profileImageView)!)
+        postTextView.text = tweet?.text
+        nameView.text = tweet?.user?.name
+        aliasView.text = "@\(tweet?.user?.screenname ?? "")"
+        timeView.text = tweet?.timestamp?.timeAgo()
+        if let rUser = tweet?.retweetUser {
+        retweetUserName.text = "\(rUser.screenname ?? "") Retweeted"
+        retweetUserName.isHidden = false
+        retweetIcon.isHidden = false
+        } else {
+        retweetUserName.isHidden = true
+        retweetIcon.isHidden = true
+        }
+        
+        favButtonView.setImage(tweet?.getFavIcon(), for: [])
+        retweetButtonView.setImage(tweet?.getRetweetedIcon(), for: [])
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
