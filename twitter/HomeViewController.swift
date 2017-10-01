@@ -67,24 +67,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             update(mode: Update.APPEND)
         }
         
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "tweetCell") as? TweetCell
         let t = userTweets[indexPath.row]
-        let url = t.user?.profileImageUrl
-        Helper.loadPhoto(withUrl: url!, into: (cell?.profileImageView)!)
-        cell?.postTextView.text = t.text
-        cell?.nameView.text = t.user?.name
-        cell?.aliasView.text = "@\(t.user?.screenname ?? "")"
         cell?.tweet = t
-        cell?.timeView.text = t.timestamp?.timeAgo()
-        if let rUser = t.retweetUser {
-              cell?.retweetUserName.text = "\(rUser.screenname ?? "") Retweeted"
-            cell?.retweetUserName.isHidden = false
-            cell?.retweetIcon.isHidden = false
-        } else {
-            cell?.retweetUserName.isHidden = true
-            cell?.retweetIcon.isHidden = true
-        }
+        cell?.update()
         return cell!
     }
 
