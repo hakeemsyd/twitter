@@ -16,6 +16,9 @@ class User {
     var profileImageUrl: URL?
     var coverImageUrl: URL?
     var tagline: String?
+    var followersCount: Int?
+    var followingCount: Int?
+    var tweetCount: Int?
     
     var dictionary: NSDictionary?
     
@@ -33,6 +36,10 @@ class User {
         if let banner = banner {
             coverImageUrl = URL(string: banner)
         }
+        
+        followersCount = (dict["followers_count"] as? Int) ?? 0
+        followingCount = (dict["friends_count"] as? Int) ?? 0
+        tweetCount = (dict["statuses_count"] as? Int) ?? 0
     }
     
     static var _currentUser: User?

@@ -37,9 +37,9 @@ class ProfileHeader: UITableViewCell {
         Helper.loadPhoto(withUrl: user.profileImageUrl!, into: profilePicture)
         userName.text = user.name
         displayName.text = "@\(user.screenname ?? "")"
-        tweetsCount.text = "14"
-        followingCount.text = "14"
-        followerCount.text = "14"
+        tweetsCount.text = "\(user.tweetCount ?? 0)"
+        followingCount.text = "\(user.followingCount ?? 0)"
+        followerCount.text = "\(user.followersCount ?? 0)"
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
