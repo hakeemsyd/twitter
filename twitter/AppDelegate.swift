@@ -15,12 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        
         if User.currentUser != nil {
             print("There is a current user")
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "homeNavigationController")
+            /*let vc = storyboard.instantiateViewController(withIdentifier: "homeNavigationController")*/
+             let vc = storyboard.instantiateViewController(withIdentifier: "hamburgerViewController") as! HamburgerViewController
             window?.rootViewController = vc
+            
+            //....................................
+            let hamburgerViewController = window?.rootViewController as! HamburgerViewController
+            
+            let menuViewController = storyboard.instantiateViewController(withIdentifier: "menuViewController") as! MenuViewController
+            menuViewController.hamburgerViewController = hamburgerViewController
+            hamburgerViewController.menuViewController = menuViewController
+            //....................................
+            
         } else {
             print("There is no current user")
         }
@@ -30,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let vc = storyboard.instantiateViewController(withIdentifier: "loginScreen")
             self.window?.rootViewController = vc
         }
+        
         return true
     }
 
