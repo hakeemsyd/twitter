@@ -9,14 +9,20 @@
 import UIKit
 import NSDateMinimalTimeAgo
 
+enum Mode {
+    case PROFILE, HOME, MENTIONS
+}
+
 enum Update {
     case RESET, APPEND
 }
+
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     let MAX_TWEETS = 20
+    
+    var mode: Mode = Mode.PROFILE
     var isMoreDataLoading = false
-    @IBOutlet weak var retweetedIcon: UIImageView!
     var refreshControl: UIRefreshControl = UIRefreshControl()
     @IBOutlet weak var tableView: UITableView!
     var userTweets: [Tweet] = [Tweet]()
@@ -26,6 +32,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        
+        if( mode == Mode.PROFILE) {
+            setupHeader()
+        }
+    
         // pull to refresh
         refreshControl.addTarget(self, action: #selector(onUserInitiatedRefresh(_:)), for: UIControlEvents.valueChanged)
         tableView.insertSubview(refreshControl, at: 0)
@@ -47,9 +58,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.didReceiveMemoryWarning()
     }
     
- @IBAction func onLogoutClicked(_ sender: UIBarButtonItem) {
+ 
+    @IBAction func onLogoutClicked(_ sender: UIBarButtonItem) {
     TwitterClient.sharedInstance.logout()
-        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -103,10 +115,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             print(error.localizedDescription)
         }
     }
-    
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "viewTweetSegue") {
              let destinationViewController = segue.destination as! TweetDetailViewController
@@ -115,7 +124,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         } else if (segue.identifier == "tweetSegue"){
         
         }
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    }
+    
+    private func setupHeader() {
+        let header = tableView.dequeueReusableCell(withIdentifier: "profileHeader") as! ProfileHeader
+        header.user = User.currentUser
+        tableView.tableHeaderView = header
     }
 }

@@ -13,9 +13,9 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var tableView: UITableView!
     let menu = ["Profile", "Timeline", "Mentions"]
     var vcs: [UIViewController] = []
-    private var profileVC: UIViewController!
-    private var timeLineVC: UIViewController!
-    private var mentionsVC: UIViewController!
+    private var profileVC: HomeViewController!
+    private var timeLineVC: HomeViewController!
+    private var mentionsVC: HomeViewController!
     
     var hamburgerViewController: HamburgerViewController!
     
@@ -26,10 +26,15 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.dataSource = self
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        profileVC = ProfileViewController()
-        timeLineVC = storyboard.instantiateViewController(withIdentifier: "homeViewController")
-        //tweetVC = storyboard.instantiateViewController(withIdentifier: "postViewController")
-        mentionsVC = MentionsViewController()
+        
+        profileVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+        profileVC.mode = Mode.PROFILE
+        
+        timeLineVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+        timeLineVC.mode = Mode.HOME
+        
+        mentionsVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+        mentionsVC.mode = Mode.MENTIONS
         
         vcs.append(profileVC)
         vcs.append(timeLineVC)

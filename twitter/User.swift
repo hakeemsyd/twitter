@@ -14,6 +14,7 @@ class User {
     var name: String?
     var screenname: String?
     var profileImageUrl: URL?
+    var coverImageUrl: URL?
     var tagline: String?
     
     var dictionary: NSDictionary?
@@ -26,6 +27,11 @@ class User {
         let profileUrlStr = st?.replacingOccurrences(of: "_normal", with: "_bigger")
         if let profileUrlStr = profileUrlStr {
             profileImageUrl = URL(string: profileUrlStr)
+        }
+        
+        let banner = dict["profile_banner_url"] as? String
+        if let banner = banner {
+            coverImageUrl = URL(string: banner)
         }
     }
     
