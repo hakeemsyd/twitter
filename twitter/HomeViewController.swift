@@ -62,7 +62,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
  
     @IBAction func onLogoutClicked(_ sender: UIBarButtonItem) {
-    TwitterClient.sharedInstance.logout()
+        TwitterClient.sharedInstance.logout()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

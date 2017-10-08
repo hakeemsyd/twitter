@@ -29,14 +29,12 @@
                                 <state key="normal" title="Twitter Login"/>
                                 <connections>
                                     <action selector="onTwitterLoginClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="idW-3I-zAt"/>
+                                    <segue destination="lXx-ke-dwK" kind="presentation" identifier="loginSegue" id="Vje-ng-uQp"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <connections>
-                        <segue destination="4VD-6k-Dvu" kind="presentation" identifier="loginSegue" id="m0K-nz-s2r"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,7 +66,11 @@
                                                 <action selector="onLogoutClicked:" destination="lXx-ke-dwK" id="nKp-NA-ab2"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="New Tweet" id="EaE-SQ-5Ag"/>
+                                        <barButtonItem key="rightBarButtonItem" title="New Tweet" id="EaE-SQ-5Ag">
+                                            <connections>
+                                                <segue destination="JII-wJ-QeI" kind="presentation" identifier="tweetSegue" id="2jN-NL-yhf"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -641,7 +643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fyM-Qi-pNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4017" y="265"/>
+            <point key="canvasLocation" x="3201" y="667"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="HPy-Lv-cp2">
@@ -746,26 +748,6 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2792.8000000000002" y="-724.58770614692662"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gLl-g2-obR">
-            <objects>
-                <navigationController storyboardIdentifier="homeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="4VD-6k-Dvu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0OO-Sb-6i8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.009323745034635067" green="0.69356793165206909" blue="0.9981730580329895" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="lXx-ke-dwK" kind="relationship" relationship="rootViewController" id="KVJ-zy-tWA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mvp-k2-VGn" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="853.60000000000002" y="138.98050974512745"/>
         </scene>
     </scenes>
     <resources>
