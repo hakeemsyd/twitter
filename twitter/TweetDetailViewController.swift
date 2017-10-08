@@ -32,6 +32,12 @@ class TweetDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func onClose(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    @IBAction func close(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func onFavorite(_ sender: Any) {
         TwitterClient.sharedInstance.fav(tweetId: tweetId, val: !(tweet?.favourited)!,success: { (tweet: Tweet) in
             self.tweetId = tweet.id!

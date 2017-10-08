@@ -128,6 +128,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    @IBAction func onProfileImageTapped(_ sender: UITapGestureRecognizer) {
+        print("tapped on profile image")
+    }
     private func setupHeader() {
         let header = tableView.dequeueReusableCell(withIdentifier: "profileHeader") as! ProfileHeader
         header.user = user
