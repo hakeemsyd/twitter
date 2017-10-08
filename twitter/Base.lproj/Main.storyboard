@@ -52,13 +52,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-WC-HkD">
+                            <navigationBar opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fgY-WC-HkD">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
-                                <color key="backgroundColor" red="0.009323745034635067" green="0.69356793165206909" blue="0.9981730580329895" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="1vM-V5-buN"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.0093237450350000008" green="0.69356793169999997" blue="0.998173058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="0Qe-ep-wDs">
                                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="yrL-VK-qwP">
@@ -304,7 +304,6 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fgY-WC-HkD" secondAttribute="trailing" id="CJW-gk-Ghj"/>
                             <constraint firstAttribute="trailing" secondItem="7c8-HS-iRJ" secondAttribute="trailing" id="L6T-DP-D8d"/>
@@ -472,6 +471,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="65" id="790-WI-DzG"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.13241285089999999" green="0.62912249570000001" blue="0.94294375180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="cue-zk-coL">
                                         <barButtonItem key="leftBarButtonItem" title="Close" id="qN4-yj-AuY" userLabel="Close">
@@ -562,11 +562,11 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rSj-ua-qt5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.13241285085678101" green="0.62912249565124512" blue="0.9429437518119812" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="0jr-6c-MKi"/>
                                     <constraint firstAttribute="width" constant="375" id="17a-cn-BS0"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.13241285089999999" green="0.62912249570000001" blue="0.94294375180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <items>
                                     <navigationItem id="7YY-Gw-duD">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="RRq-5K-4M3">
@@ -678,7 +678,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.009323745034635067" green="0.69356793165206909" blue="0.9981730580329895" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.13241285089999999" green="0.62912249570000001" blue="0.94294375180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="menuLabel" destination="4TO-nl-tyq" id="VCs-Pw-E1r"/>
                                         </connections>
