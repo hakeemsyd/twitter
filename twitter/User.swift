@@ -11,6 +11,7 @@ import UIKit
 class User {
     static let userDidLogoutNotification = "UserDidLogout"
     
+    var id: Int?
     var name: String?
     var screenname: String?
     var profileImageUrl: URL?
@@ -40,6 +41,7 @@ class User {
         followersCount = (dict["followers_count"] as? Int) ?? 0
         followingCount = (dict["friends_count"] as? Int) ?? 0
         tweetCount = (dict["statuses_count"] as? Int) ?? 0
+        id = (dict["id"] as? Int) ?? 0
     }
     
     static var _currentUser: User?

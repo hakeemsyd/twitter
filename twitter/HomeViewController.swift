@@ -19,7 +19,7 @@ enum Update {
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let MAX_TWEETS = 20
+    let MAX_TWEETS = 5
     
     var mode: Mode = Mode.PROFILE
     var isMoreDataLoading = false
@@ -97,7 +97,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             lasttweeId = (userTweets.last?.id)!
         }
         
-        TwitterClient.sharedInstance.homeTimeline(lastTweetId: lasttweeId, maxCount: MAX_TWEETS, success: { (tweets: [Tweet]) in
+        TwitterClient.sharedInstance.timeline(userId: (User.currentUser?.id)!, mode: self.mode, lastTweetId: lasttweeId, maxCount: MAX_TWEETS, success: { (tweets: [Tweet]) in
             if mode == Update.RESET {
                 self.userTweets = tweets
             } else if mode == Update.APPEND {

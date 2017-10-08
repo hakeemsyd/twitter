@@ -53,6 +53,62 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func userTimeline(userId: Int, lastTweetId: Int, maxCount: Int, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+        var params: NSDictionary? = nil
+        if lastTweetId > 0 {
+            params = [
+                "count": maxCount,
+                "since_id": lastTweetId,
+                "user_id": userId
+            ]
+        }
+        get("1.1/statuses/user_timeline.json", parameters: params, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            let dict = response as! [NSDictionary]
+            let tweets = Tweet.tweetsWithArray(dicts: dict)
+            for tweet in tweets {
+                print("Tweet: \(tweet.text ?? "")")
+            }
+            
+            success(tweets)
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            print(error.localizedDescription)
+            failure(error)
+        })
+    }
+    
+    func timeline(userId: Int, mode: Mode, lastTweetId: Int, maxCount: Int, success: @escaping ([Tweet]) -> (), failure: @escaping (Error) -> ()) {
+        var endpoint = ""
+        
+        var params: [String: Any?] = [String: Any?]()
+        params["count"] = maxCount
+        if lastTweetId > 0 {
+            params["since_id"] = lastTweetId
+        }
+        
+        if mode == Mode.HOME {
+            endpoint = "1.1/statuses/home_timeline.json"
+        } else if mode == Mode.PROFILE {
+            endpoint = "1.1/statuses/user_timeline.json"
+            params["user_id"] = userId
+        } else if mode == Mode.MENTIONS {
+            endpoint = "1.1/statuses/mentions_timeline.json"
+            params["user_id"] = userId
+        }
+        
+        get(endpoint, parameters: params, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
+            let dict = response as! [NSDictionary]
+            let tweets = Tweet.tweetsWithArray(dicts: dict)
+            for tweet in tweets {
+                print("Tweet: \(tweet.text ?? "")")
+            }
+            
+            success(tweets)
+        }, failure: { (task: URLSessionDataTask?, error: Error) in
+            print(error.localizedDescription)
+            failure(error)
+        })
+    }
+    
     func currentAccount(success: @escaping (User) -> (), failure: @escaping (Error) -> ()) {
         get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
             let dict = response as! NSDictionary
