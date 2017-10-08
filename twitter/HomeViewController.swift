@@ -34,7 +34,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.tableFooterView = UIView.init(frame: CGRect.zero)
+        tableView.tableFooterView = UIView()
         
         if( mode == Mode.PROFILE) {
             setupHeader()
@@ -139,10 +139,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func handleProfPicTap(_ sender: UITapGestureRecognizer) {
         print("profile pic tapped")
+        
         /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileNavVC = storyboard.instantiateViewController(withIdentifier: "MeNavigationController") as! UINavigationController
-        let profVC = profileNavVC.viewControllers.first as! ProfileVC
-        profileVC.user = self.tweeter
+        let profileNavVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! UINavigationController
+        let profVC = profileNavVC.viewControllers.first as! HomeViewController
+        profVC.user =
         self.navigationController?.pushViewController(profileNavVC, animated: true)*/
     }
 }

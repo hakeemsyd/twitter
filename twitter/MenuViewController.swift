@@ -24,6 +24,7 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.tableFooterView = UIView()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
