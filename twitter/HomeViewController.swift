@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.tableFooterView = UIView.init(frame: CGRect.zero)
         
         if( mode == Mode.PROFILE) {
             setupHeader()
@@ -85,6 +86,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let t = userTweets[indexPath.row]
         cell?.tweet = t
         cell?.update()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleProfPicTap))
+        cell?.profileImageView.addGestureRecognizer(tapGesture)
         return cell!
     }
 
@@ -127,13 +130,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         }
     }
-    
-    @IBAction func onProfileImageTapped(_ sender: UITapGestureRecognizer) {
-        print("tapped on profile image")
-    }
+
     private func setupHeader() {
         let header = tableView.dequeueReusableCell(withIdentifier: "profileHeader") as! ProfileHeader
         header.user = user
         tableView.tableHeaderView = header
+    }
+    
+    func handleProfPicTap(_ sender: UITapGestureRecognizer) {
+        print("profile pic tapped")
+        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileNavVC = storyboard.instantiateViewController(withIdentifier: "MeNavigationController") as! UINavigationController
+        let profVC = profileNavVC.viewControllers.first as! ProfileVC
+        profileVC.user = self.tweeter
+        self.navigationController?.pushViewController(profileNavVC, animated: true)*/
     }
 }

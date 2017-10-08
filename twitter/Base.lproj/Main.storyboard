@@ -193,9 +193,6 @@
                                                         <constraint firstAttribute="height" constant="60" id="SOP-QL-ioa"/>
                                                         <constraint firstAttribute="width" constant="60" id="nO8-lk-ZNw"/>
                                                     </constraints>
-                                                    <connections>
-                                                        <outletCollection property="gestureRecognizers" destination="AJ3-5V-EkU" appends="YES" id="s0u-j2-Q5P"/>
-                                                    </connections>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet-filled" translatesAutoresizingMaskIntoConstraints="NO" id="KE7-X0-YJj">
                                                     <rect key="frame" x="57" y="8" width="25" height="25"/>
@@ -330,11 +327,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSO-Cd-WfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="AJ3-5V-EkU">
-                    <connections>
-                        <action selector="onProfileImageTapped:" destination="lXx-ke-dwK" id="sGr-av-cvX"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1716" y="-4.0479760119940034"/>
         </scene>
@@ -475,6 +467,7 @@
                                 <items>
                                     <navigationItem id="cue-zk-coL">
                                         <barButtonItem key="leftBarButtonItem" title="Close" id="qN4-yj-AuY" userLabel="Close">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="onClose:" destination="zTk-30-jo0" id="AxG-K3-hQ6"/>
                                             </connections>
