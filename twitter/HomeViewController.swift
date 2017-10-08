@@ -86,8 +86,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let t = userTweets[indexPath.row]
         cell?.tweet = t
         cell?.update()
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleProfPicTap))
-        cell?.profileImageView.addGestureRecognizer(tapGesture)
+        cell?.onOpenProfile = { (user: User) in
+            print("\(user.name ?? "")")
+            self.handleProfPicTap(user: user)
+        }
         return cell!
     }
 
@@ -137,13 +139,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.tableHeaderView = header
     }
     
-    func handleProfPicTap(_ sender: UITapGestureRecognizer) {
-        print("profile pic tapped")
-        
-        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let profileNavVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! UINavigationController
-        let profVC = profileNavVC.viewControllers.first as! HomeViewController
-        profVC.user =
-        self.navigationController?.pushViewController(profileNavVC, animated: true)*/
+    private func handleProfPicTap(user: User) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let profileVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
+        profileVC.user = user;
+        self.present(profileVC, animated: true, completion: nil)
     }
 }

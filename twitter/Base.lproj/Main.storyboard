@@ -66,7 +66,7 @@
                                                 <action selector="onLogoutClicked:" destination="lXx-ke-dwK" id="nKp-NA-ab2"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="New Tweet" id="EaE-SQ-5Ag">
+                                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="EaE-SQ-5Ag">
                                             <connections>
                                                 <segue destination="JII-wJ-QeI" kind="presentation" identifier="tweetSegue" id="2jN-NL-yhf"/>
                                             </connections>
@@ -568,7 +568,7 @@
                                                 <action selector="onCancelTweet:" destination="JII-wJ-QeI" id="hQE-RZ-E9k"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="H18-eb-9Re">
+                                        <barButtonItem key="rightBarButtonItem" title="Post" id="H18-eb-9Re">
                                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="onTweet:" destination="JII-wJ-QeI" id="inf-PB-7xF"/>
@@ -662,10 +662,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TO-nl-tyq">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TO-nl-tyq">
                                                     <rect key="frame" x="17" y="0.0" width="338" height="36"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="28"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
