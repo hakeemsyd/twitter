@@ -10,7 +10,7 @@ import UIKit
 import NSDateMinimalTimeAgo
 
 enum Mode {
-    case PROFILE, HOME, MENTIONS
+    case PROFILE, HOME, MENTIONS, SOMEONES_PROFILE
 }
 
 enum Update {
@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     let MAX_TWEETS = 5
     
+    @IBOutlet weak var tweetButton: UIBarButtonItem!
+    @IBOutlet weak var logoutButton: UIBarButtonItem!
     var mode: Mode = Mode.PROFILE
     var isMoreDataLoading = false
     var refreshControl: UIRefreshControl = UIRefreshControl()
@@ -36,7 +38,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         
-        if( mode == Mode.PROFILE) {
+        if( mode == Mode.PROFILE || mode == Mode.SOMEONES_PROFILE) {
             setupHeader()
         }
     
@@ -63,6 +65,12 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
  
     @IBAction func onLogoutClicked(_ sender: UIBarButtonItem) {
+        if mode == Mode.SOMEONES_PROFILE {
+            //close this view
+            dismiss(animated: true, completion: nil)
+            return
+        }
+        
         TwitterClient.sharedInstance.logout()
     }
     
@@ -137,12 +145,21 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let header = tableView.dequeueReusableCell(withIdentifier: "profileHeader") as! ProfileHeader
         header.user = user
         tableView.tableHeaderView = header
+        
+        if mode == Mode.SOMEONES_PROFILE {
+            logoutButton.title = "close"
+            tweetButton.isEnabled = false
+        } else {
+            logoutButton.title = "Log Out"
+            tweetButton.isEnabled = true
+        }
     }
     
     private func handleProfPicTap(user: User) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let profileVC = storyboard.instantiateViewController(withIdentifier: "homeViewController") as! HomeViewController
         profileVC.user = user;
+        profileVC.mode = Mode.SOMEONES_PROFILE
         self.present(profileVC, animated: true, completion: nil)
     }
 }

@@ -33,8 +33,13 @@ class ProfileHeader: UITableViewCell {
     }
     
     func update() {
-        Helper.loadPhoto(withUrl: user.coverImageUrl!, into: coverPhoto)
-        Helper.loadPhoto(withUrl: user.profileImageUrl!, into: profilePicture)
+        if  let coverImageUrl = user.coverImageUrl {
+            Helper.loadPhoto(withUrl: coverImageUrl, into: coverPhoto)
+        }
+        
+        if let profileImageUrl = user.profileImageUrl {
+            Helper.loadPhoto(withUrl: profileImageUrl, into: profilePicture)
+        }
         userName.text = user.name
         displayName.text = "@\(user.screenname ?? "")"
         tweetsCount.text = "\(user.tweetCount ?? 0)"

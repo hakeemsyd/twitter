@@ -323,7 +323,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="logoutButton" destination="yrL-VK-qwP" id="E8e-Ok-5dq"/>
                         <outlet property="tableView" destination="7c8-HS-iRJ" id="jeH-1b-b2D"/>
+                        <outlet property="tweetButton" destination="EaE-SQ-5Ag" id="bjC-XF-Kwg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSO-Cd-WfF" userLabel="First Responder" sceneMemberID="firstResponder"/>
