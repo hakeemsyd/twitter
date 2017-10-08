@@ -57,6 +57,11 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
         return vcs.count
     }
 
+    func navigateToProfile(user: User) {
+        profileVC.user = user
+        hamburgerViewController.contentViewController = profileVC
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
    }

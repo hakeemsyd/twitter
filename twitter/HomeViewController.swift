@@ -28,6 +28,8 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var userTweets: [Tweet] = [Tweet]()
     var loadingView: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
+    var user: User = User.currentUser!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
@@ -97,7 +99,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             lasttweeId = (userTweets.last?.id)!
         }
         
-        TwitterClient.sharedInstance.timeline(userId: (User.currentUser?.id)!, mode: self.mode, lastTweetId: lasttweeId, maxCount: MAX_TWEETS, success: { (tweets: [Tweet]) in
+        TwitterClient.sharedInstance.timeline(userId: (user.id)!, mode: self.mode, lastTweetId: lasttweeId, maxCount: MAX_TWEETS, success: { (tweets: [Tweet]) in
             if mode == Update.RESET {
                 self.userTweets = tweets
             } else if mode == Update.APPEND {
@@ -128,7 +130,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     private func setupHeader() {
         let header = tableView.dequeueReusableCell(withIdentifier: "profileHeader") as! ProfileHeader
-        header.user = User.currentUser
+        header.user = user
         tableView.tableHeaderView = header
     }
 }
