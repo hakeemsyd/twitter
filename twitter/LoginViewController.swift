@@ -25,7 +25,9 @@ class LoginViewController: UIViewController {
     @IBAction func onTwitterLoginClick(_ sender: UIButton) {
         TwitterClient.sharedInstance.login(success: { 
             print("I have loggedIn")
-            self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            //self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.handleUserAuthentication()
         }) { (error: Error) in
             print("\(error.localizedDescription)")
         }
