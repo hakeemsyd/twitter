@@ -67,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let menuViewController = storyboard.instantiateViewController(withIdentifier: "menuViewController") as! MenuViewController
             menuViewController.hamburgerViewController = hamburgerViewController
             hamburgerViewController.menuViewController = menuViewController
-            //....................................
             
         } else {
             print("There is no current user")

@@ -93,6 +93,9 @@ class TwitterClient: BDBOAuth1SessionManager {
         } else if mode == Mode.MENTIONS {
             endpoint = "1.1/statuses/mentions_timeline.json"
             params["user_id"] = userId
+        } else if mode == Mode.SOMEONES_PROFILE {
+            endpoint = "1.1/statuses/user_timeline.json"
+            params["user_id"] = userId
         }
         
         get(endpoint, parameters: params, progress: nil, success: { (task: URLSessionDataTask, response: Any?) in
