@@ -21,11 +21,17 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var nameView: UILabel!
     var tweet: Tweet?
     
+    var onOpenProfile: ((User) -> ())?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         postTextView.isScrollEnabled = false
         postTextView.isEditable = false
         postTextView.resignFirstResponder()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleProfPicTap))
+        profileImageView.addGestureRecognizer(tapGesture)
+        
         if tweet != nil {
             update()
         }
@@ -53,6 +59,11 @@ class TweetCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+    }
+    
+    func handleProfPicTap(_ sender: UITapGestureRecognizer) {
+        print("profile pic tapped")
+        onOpenProfile!((tweet?.user)!)
     }
 
 }

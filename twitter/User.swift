@@ -11,10 +11,15 @@ import UIKit
 class User {
     static let userDidLogoutNotification = "UserDidLogout"
     
+    var id: Int?
     var name: String?
     var screenname: String?
     var profileImageUrl: URL?
+    var coverImageUrl: URL?
     var tagline: String?
+    var followersCount: Int?
+    var followingCount: Int?
+    var tweetCount: Int?
     
     var dictionary: NSDictionary?
     
@@ -27,6 +32,16 @@ class User {
         if let profileUrlStr = profileUrlStr {
             profileImageUrl = URL(string: profileUrlStr)
         }
+        
+        let banner = dict["profile_banner_url"] as? String
+        if let banner = banner {
+            coverImageUrl = URL(string: banner)
+        }
+        
+        followersCount = (dict["followers_count"] as? Int) ?? 0
+        followingCount = (dict["friends_count"] as? Int) ?? 0
+        tweetCount = (dict["statuses_count"] as? Int) ?? 0
+        id = (dict["id"] as? Int) ?? 0
     }
     
     static var _currentUser: User?
